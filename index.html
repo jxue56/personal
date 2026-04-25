@@ -216,87 +216,24 @@
     }
     .highlight-card p { font-size: 0.9rem; color: var(--dark-light); }
 
-    /* ===================== THE DEAL ===================== */
-    .deal { background: var(--seafoam); }
-    .deal-box {
-      background: var(--white);
-      border-radius: 20px;
-      padding: 3rem 2.5rem;
-      text-align: center;
-      max-width: 700px;
-      margin: 0 auto;
-      box-shadow: 0 4px 30px rgba(0,119,182,0.08);
-      border: 2px solid rgba(0,119,182,0.1);
-    }
-    .deal-box .deal-emoji { font-size: 2.5rem; margin-bottom: 1rem; }
-    .deal-box h3 {
-      font-size: 1.6rem;
-      color: var(--ocean);
-      margin-bottom: 1rem;
-    }
-    .deal-box .deal-text {
-      font-size: 1.2rem;
-      line-height: 1.8;
-      color: var(--dark);
-      margin-bottom: 1.5rem;
-    }
-    .deal-box .deal-text strong { color: var(--ocean-deep); }
-    .deal-box .flight-note {
-      font-size: 0.95rem;
-      color: var(--dark-light);
-      background: var(--sand-light);
-      border-radius: 10px;
-      padding: 1rem 1.5rem;
-      display: inline-block;
-    }
-
-    /* ===================== THE HOUSE ===================== */
-    .house { background: var(--white); }
-    .gallery-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-      gap: 1rem;
-      margin-bottom: 2rem;
-    }
-    .gallery-item {
-      border-radius: 12px;
-      overflow: hidden;
-      aspect-ratio: 4/3;
+    /* ===================== WHERE WE'LL STAY ===================== */
+    .stay-section {
       position: relative;
+      overflow: hidden;
     }
-    .gallery-item img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      transition: transform 0.5s ease;
-    }
-    .gallery-item:hover img { transform: scale(1.05); }
-    .gallery-item .caption {
+    .stay-bg {
       position: absolute;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      padding: 0.75rem 1rem;
-      background: linear-gradient(transparent, rgba(0,0,0,0.6));
-      color: var(--white);
-      font-size: 0.85rem;
-      font-weight: 500;
+      inset: 0;
+      background: url('https://cdn.prod.website-files.com/69709e6726b9822abbd62fdc/697876ff901a7c70a90b5175_693855c1aae0ad2789bbe4be_2%2520Haven-House-pick-up_-6.avif') center/cover no-repeat;
+      z-index: 0;
     }
-    .house-note {
-      text-align: center;
-      font-size: 1.05rem;
-      color: var(--dark-light);
-      max-width: 650px;
-      margin: 0 auto;
-      line-height: 1.8;
+    .stay-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(244,228,193,0.88) 0%, rgba(250,243,227,0.92) 100%);
+      z-index: 0;
     }
-    .house-note a {
-      color: var(--ocean);
-      text-decoration: underline;
-      text-underline-offset: 3px;
-    }
-
-    /* ===================== WHAT'S INCLUDED ===================== */
+    .stay-section .section-title { color: var(--ocean); }
     .included { background: var(--sand-light); }
     .included-grid {
       display: grid;
@@ -392,9 +329,7 @@
       display: block;
     }
     .wave-divider.sand-to-white svg { fill: var(--white); }
-    .wave-divider.white-to-seafoam svg { fill: var(--seafoam); }
-    .wave-divider.seafoam-to-white svg { fill: var(--white); }
-    .wave-divider.white-to-sand svg { fill: var(--sand-light); }
+    .wave-divider.white-to-stay svg { fill: var(--sand-light); }
     .wave-divider.sand-to-ocean svg { fill: var(--ocean); }
     .wave-divider.slate-to-escape { background: var(--slate-bg); }
     .wave-divider.slate-to-escape svg { fill: var(--dark); }
@@ -414,8 +349,6 @@
     @media (max-width: 768px) {
       section { padding: 3.5rem 1.25rem; }
       .hero { height: 45vh; min-height: 280px; }
-      .deal-box { padding: 2rem 1.5rem; }
-      .gallery-grid { grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); }
       .escape { min-height: 400px; }
       .escape-content { padding: 2.5rem 1.5rem; }
     }
@@ -496,106 +429,31 @@
     </div>
   </section>
 
-  <!-- Wave: white to seafoam -->
-  <div class="wave-divider white-to-seafoam">
+  <!-- Wave: white to stay -->
+  <div class="wave-divider white-to-stay">
     <svg viewBox="0 0 1200 60" preserveAspectRatio="none"><path d="M0,30 C200,60 400,0 600,30 C800,60 1000,0 1200,30 L1200,60 L0,60 Z"/></svg>
   </div>
 
-  <!-- ==================== THE DEAL ==================== -->
-  <section class="deal" id="deal">
-    <div class="section-inner fade-in">
-      <h2 class="section-title">The Deal</h2>
-      <div class="deal-box">
-        <div class="deal-emoji">🤝</div>
-        <h3>We've got you covered</h3>
-        <p class="deal-text">
-          <strong>Julie &amp; Fred are covering the house, airport transfers, and all the food.</strong><br>
-          All you need to bring are your flights and your time.
-        </p>
-        <div class="flight-note">
-          ✈️ &nbsp;Estimated round-trip flights: <strong>$250 – $450</strong> from NYC / BOS / PHL
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Wave: seafoam to white -->
-  <div class="wave-divider seafoam-to-white">
-    <svg viewBox="0 0 1200 60" preserveAspectRatio="none"><path d="M0,30 C200,0 400,60 600,30 C800,0 1000,60 1200,30 L1200,60 L0,60 Z"/></svg>
-  </div>
-
-  <!-- ==================== THE HOUSE ==================== -->
-  <section class="house" id="house">
-    <div class="section-inner fade-in">
-      <h2 class="section-title">The House</h2>
-      <p class="section-subtitle">A sneak peek at Island House LVM's luxury villa collection</p>
-      <div class="gallery-grid">
-        <div class="gallery-item">
-          <img src="https://images.unsplash.com/photo-1580237072617-771c3ecc4a24?w=600&q=80"
-               alt="Aerial view of turquoise waters and white sand in Turks and Caicos" loading="lazy">
-          <div class="caption">Crystal clear waters</div>
-        </div>
-        <div class="gallery-item">
-          <img src="https://images.unsplash.com/photo-1613490493576-7fde63acd811?w=600&q=80"
-               alt="Luxury villa with infinity pool overlooking the ocean" loading="lazy">
-          <div class="caption">Private pool &amp; ocean views</div>
-        </div>
-        <div class="gallery-item">
-          <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=600&q=80"
-               alt="White sand beach with turquoise water" loading="lazy">
-          <div class="caption">Steps from your door</div>
-        </div>
-        <div class="gallery-item">
-          <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=600&q=80"
-               alt="Beautiful modern beach house exterior" loading="lazy">
-          <div class="caption">Luxury beachfront living</div>
-        </div>
-        <div class="gallery-item">
-          <img src="https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=600&q=80"
-               alt="Kayaks and paddleboards on a Caribbean beach" loading="lazy">
-          <div class="caption">Kayaks &amp; paddleboards included</div>
-        </div>
-        <div class="gallery-item">
-          <img src="https://images.unsplash.com/photo-1559128010-7c1ad6e1b6a5?w=600&q=80"
-               alt="Palm trees on a tropical beach" loading="lazy">
-          <div class="caption">Paradise awaits</div>
-        </div>
-      </div>
-      <p class="house-note">
-        We'll choose from <a href="https://www.islandhouselvm.com/" target="_blank" rel="noopener">Island House LVM's</a>
-        collection of luxury beachfront villas depending on group size — private beach, heated pool,
-        sports courts, concierge service, private chef… the works.
-      </p>
-    </div>
-  </section>
-
-  <!-- Wave: white to sand -->
-  <div class="wave-divider white-to-sand">
-    <svg viewBox="0 0 1200 60" preserveAspectRatio="none"><path d="M0,30 C200,60 400,0 600,30 C800,60 1000,0 1200,30 L1200,60 L0,60 Z"/></svg>
-  </div>
-
-  <!-- ==================== WHAT'S INCLUDED ==================== -->
-  <section class="included" id="included">
-    <div class="section-inner fade-in">
-      <h2 class="section-title">What's Included</h2>
-      <p class="section-subtitle">We want this to be easy for everyone</p>
+  <!-- ==================== WHERE WE'LL STAY ==================== -->
+  <section class="included stay-section" id="included">
+    <div class="stay-bg" role="img" aria-label="Beachfront villa in Turks and Caicos"></div>
+    <div class="stay-overlay"></div>
+    <div class="section-inner fade-in" style="position: relative; z-index: 1;">
+      <h2 class="section-title">Where We'll Stay</h2>
       <div class="included-grid">
         <div class="included-col covered">
-          <h3>🏠 Covered by Us</h3>
+          <h3>🏠 Included</h3>
           <ul>
-            <li>Luxury villa rental</li>
+            <li>Beachfront villa</li>
             <li>Airport transfers</li>
             <li>Private chef &amp; all meals</li>
-            <li>Concierge services</li>
             <li>Beach toys &amp; water sports gear</li>
-            <li>Housekeeping</li>
           </ul>
         </div>
         <div class="included-col bring">
-          <h3>🧳 You Bring</h3>
+          <h3>🧳 Your Gift</h3>
           <ul>
             <li>Your flights</li>
-            <li>Spending money for personal excursions</li>
             <li>Sunscreen</li>
             <li>Good vibes</li>
           </ul>
