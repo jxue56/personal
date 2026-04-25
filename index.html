@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Turks & Caicos 2027 — Join Us!</title>
+  <meta name="description" content="A long weekend of sun, sand, and celebrating Fred. Join us in Turks & Caicos, January or February 2027.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --ocean: #0077B6;
+      --ocean-deep: #005f8f;
+      --sand: #F4E4C1;
+      --sand-light: #faf3e3;
+      --white: #FFFFFF;
+      --coral: #FF6B6B;
+      --coral-hover: #e55a5a;
+      --dark: #2D3436;
+      --dark-light: #4a4f51;
+      --seafoam: #e0f4f4;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      color: var(--dark);
+      line-height: 1.6;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    h1, h2, h3, h4 { font-family: 'Playfair Display', serif; font-weight: 600; }
+
+    .fade-in {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ===================== HERO ===================== */
+    .hero {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: var(--white);
+      overflow: hidden;
+    }
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background: url('https://images.unsplash.com/photo-1548041347-390744c58da2?w=1920&q=80') center/cover no-repeat;
+      z-index: -2;
+    }
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(0,50,80,0.45) 0%, rgba(0,30,50,0.6) 100%);
+      z-index: -1;
+    }
+    .hero-content { max-width: 700px; padding: 2rem; }
+    .hero-content h1 {
+      font-size: clamp(2.5rem, 6vw, 4.5rem);
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+      text-shadow: 0 2px 20px rgba(0,0,0,0.3);
+    }
+    .hero-content .subtitle {
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+      font-size: clamp(1.1rem, 2.5vw, 1.5rem);
+      font-weight: 400;
+      opacity: 0.95;
+      margin-bottom: 2rem;
+      text-shadow: 0 1px 10px rgba(0,0,0,0.3);
+    }
+    .scroll-arrow {
+      position: absolute;
+      bottom: 2rem;
+      left: 50%;
+      transform: translateX(-50%);
+      animation: bounce 2s infinite;
+      cursor: pointer;
+    }
+    .scroll-arrow svg { width: 32px; height: 32px; fill: var(--white); opacity: 0.8; }
+    @keyframes bounce {
+      0%, 20%, 50%, 80%, 100% { transform: translateX(-50%) translateY(0); }
+      40% { transform: translateX(-50%) translateY(-12px); }
+      60% { transform: translateX(-50%) translateY(-6px); }
+    }
+
+    /* ===================== SECTIONS ===================== */
+    section { padding: 5rem 1.5rem; }
+    .section-inner { max-width: 1000px; margin: 0 auto; }
+    .section-title {
+      font-size: clamp(1.8rem, 4vw, 2.8rem);
+      text-align: center;
+      margin-bottom: 1rem;
+      color: var(--ocean);
+    }
+    .section-subtitle {
+      text-align: center;
+      font-size: 1.1rem;
+      color: var(--dark-light);
+      max-width: 600px;
+      margin: 0 auto 3rem;
+    }
+
+    /* ===================== THE PITCH ===================== */
+    .pitch { background: var(--white); }
+    .pitch-intro {
+      text-align: center;
+      font-size: 1.15rem;
+      max-width: 680px;
+      margin: 0 auto 3rem;
+      color: var(--dark-light);
+      line-height: 1.8;
+    }
+    .highlight-cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1.5rem;
+    }
+    .highlight-card {
+      background: var(--sand-light);
+      border-radius: 16px;
+      padding: 2rem 1.5rem;
+      text-align: center;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .highlight-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 30px rgba(0,119,182,0.12);
+    }
+    .highlight-card .icon { font-size: 2.2rem; margin-bottom: 0.75rem; }
+    .highlight-card h3 {
+      font-size: 1.15rem;
+      margin-bottom: 0.5rem;
+      color: var(--ocean);
+    }
+    .highlight-card p { font-size: 0.9rem; color: var(--dark-light); }
+
+    /* ===================== THE DEAL ===================== */
+    .deal { background: var(--seafoam); }
+    .deal-box {
+      background: var(--white);
+      border-radius: 20px;
+      padding: 3rem 2.5rem;
+      text-align: center;
+      max-width: 700px;
+      margin: 0 auto;
+      box-shadow: 0 4px 30px rgba(0,119,182,0.08);
+      border: 2px solid rgba(0,119,182,0.1);
+    }
+    .deal-box .deal-emoji { font-size: 2.5rem; margin-bottom: 1rem; }
+    .deal-box h3 {
+      font-size: 1.6rem;
+      color: var(--ocean);
+      margin-bottom: 1rem;
+    }
+    .deal-box .deal-text {
+      font-size: 1.2rem;
+      line-height: 1.8;
+      color: var(--dark);
+      margin-bottom: 1.5rem;
+    }
+    .deal-box .deal-text strong { color: var(--ocean-deep); }
+    .deal-box .flight-note {
+      font-size: 0.95rem;
+      color: var(--dark-light);
+      background: var(--sand-light);
+      border-radius: 10px;
+      padding: 1rem 1.5rem;
+      display: inline-block;
+    }
+
+    /* ===================== THE HOUSE ===================== */
+    .house { background: var(--white); }
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 1rem;
+      margin-bottom: 2rem;
+    }
+    .gallery-item {
+      border-radius: 12px;
+      overflow: hidden;
+      aspect-ratio: 4/3;
+      position: relative;
+    }
+    .gallery-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+    .gallery-item:hover img { transform: scale(1.05); }
+    .gallery-item .caption {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: 0.75rem 1rem;
+      background: linear-gradient(transparent, rgba(0,0,0,0.6));
+      color: var(--white);
+      font-size: 0.85rem;
+      font-weight: 500;
+    }
+    .house-note {
+      text-align: center;
+      font-size: 1.05rem;
+      color: var(--dark-light);
+      max-width: 650px;
+      margin: 0 auto;
+      line-height: 1.8;
+    }
+    .house-note a {
+      color: var(--ocean);
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+
+    /* ===================== WHAT'S INCLUDED ===================== */
+    .included { background: var(--sand-light); }
+    .included-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    @media (max-width: 600px) {
+      .included-grid { grid-template-columns: 1fr; }
+    }
+    .included-col {
+      background: var(--white);
+      border-radius: 16px;
+      padding: 2rem;
+      box-shadow: 0 2px 15px rgba(0,0,0,0.04);
+    }
+    .included-col h3 {
+      font-size: 1.3rem;
+      margin-bottom: 1.25rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .included-col.covered h3 { color: var(--ocean); }
+    .included-col.bring h3 { color: var(--coral); }
+    .included-col ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+    .included-col li {
+      font-size: 1rem;
+      padding-left: 1.5rem;
+      position: relative;
+      color: var(--dark-light);
+    }
+    .included-col li::before {
+      content: '✓';
+      position: absolute;
+      left: 0;
+      font-weight: 600;
+    }
+    .included-col.covered li::before { color: var(--ocean); }
+    .included-col.bring li::before { color: var(--coral); }
+
+    /* ===================== RSVP ===================== */
+    .rsvp { background: var(--ocean); color: var(--white); text-align: center; }
+    .rsvp .section-title { color: var(--white); }
+    .rsvp .rsvp-text {
+      font-size: 1.15rem;
+      max-width: 550px;
+      margin: 0 auto 2.5rem;
+      opacity: 0.9;
+      line-height: 1.8;
+    }
+    .rsvp-btn {
+      display: inline-block;
+      background: var(--coral);
+      color: var(--white);
+      text-decoration: none;
+      font-family: 'Inter', sans-serif;
+      font-size: 1.15rem;
+      font-weight: 600;
+      padding: 1rem 3rem;
+      border-radius: 50px;
+      transition: background 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+      box-shadow: 0 4px 20px rgba(255,107,107,0.4);
+    }
+    .rsvp-btn:hover {
+      background: var(--coral-hover);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 25px rgba(255,107,107,0.5);
+    }
+    .rsvp-closing {
+      margin-top: 2.5rem;
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+      font-size: 1.1rem;
+      opacity: 0.85;
+    }
+
+    /* ===================== WAVE DIVIDER ===================== */
+    .wave-divider {
+      width: 100%;
+      line-height: 0;
+      overflow: hidden;
+    }
+    .wave-divider svg {
+      width: 100%;
+      height: 60px;
+      display: block;
+    }
+    .wave-divider.sand-to-white svg { fill: var(--white); }
+    .wave-divider.white-to-seafoam svg { fill: var(--seafoam); }
+    .wave-divider.seafoam-to-white svg { fill: var(--white); }
+    .wave-divider.white-to-sand svg { fill: var(--sand-light); }
+    .wave-divider.sand-to-ocean svg { fill: var(--ocean); }
+
+    /* ===================== FOOTER ===================== */
+    footer {
+      background: var(--ocean-deep);
+      color: var(--white);
+      text-align: center;
+      padding: 2rem 1.5rem;
+      font-size: 0.9rem;
+      opacity: 0.9;
+    }
+    footer .heart { color: var(--coral); }
+
+    /* ===================== RESPONSIVE ===================== */
+    @media (max-width: 768px) {
+      section { padding: 3.5rem 1.25rem; }
+      .deal-box { padding: 2rem 1.5rem; }
+      .gallery-grid { grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ==================== HERO ==================== -->
+  <section class="hero" id="top">
+    <div class="hero-bg" role="img" aria-label="Turquoise water and white sand beach in Turks and Caicos"></div>
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <h1>Turks &amp; Caicos 2027</h1>
+      <p class="subtitle">A long weekend of sun, sand &amp; celebrating Fred</p>
+    </div>
+    <a href="#pitch" class="scroll-arrow" aria-label="Scroll down">
+      <svg viewBox="0 0 24 24"><path d="M12 16l-6-6h12z"/></svg>
+    </a>
+  </section>
+
+  <!-- ==================== THE PITCH ==================== -->
+  <section class="pitch" id="pitch">
+    <div class="section-inner fade-in">
+      <h2 class="section-title">Why Turks &amp; Caicos?</h2>
+      <p class="pitch-intro">
+        We're ringing in Fred's birthday the right way — swapping the cold, grey northeast winter
+        for turquoise water and white sand. We'd love nothing more than to spend a long weekend
+        with the people we love most. Family, friends, kids — everyone's invited.
+      </p>
+      <div class="highlight-cards">
+        <div class="highlight-card">
+          <div class="icon">✈️</div>
+          <h3>Under 4 Hours</h3>
+          <p>Nonstop from NYC, Boston, Philly, and more east coast airports</p>
+        </div>
+        <div class="highlight-card">
+          <div class="icon">🏖️</div>
+          <h3>Private Beach Villa</h3>
+          <p>Stunning house with pool, sports courts, and steps-to-the-sand beach access</p>
+        </div>
+        <div class="highlight-card">
+          <div class="icon">👨‍👩‍👧‍👦</div>
+          <h3>Kid Friendly</h3>
+          <p>Bring the whole crew — little ones are absolutely welcome</p>
+        </div>
+        <div class="highlight-card">
+          <div class="icon">📅</div>
+          <h3>Long Weekend</h3>
+          <p>MLK or President's Day weekend — January&nbsp;or&nbsp;February&nbsp;2027</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Wave: white to seafoam -->
+  <div class="wave-divider white-to-seafoam">
+    <svg viewBox="0 0 1200 60" preserveAspectRatio="none"><path d="M0,30 C200,60 400,0 600,30 C800,60 1000,0 1200,30 L1200,60 L0,60 Z"/></svg>
+  </div>
+
+  <!-- ==================== THE DEAL ==================== -->
+  <section class="deal" id="deal">
+    <div class="section-inner fade-in">
+      <h2 class="section-title">The Deal</h2>
+      <div class="deal-box">
+        <div class="deal-emoji">🤝</div>
+        <h3>We've got you covered</h3>
+        <p class="deal-text">
+          <strong>Julie &amp; Fred are covering the house, airport transfers, and all the food.</strong><br>
+          All you need to bring are your flights and your time.
+        </p>
+        <div class="flight-note">
+          ✈️ &nbsp;Estimated round-trip flights: <strong>$250 – $450</strong> from NYC / BOS / PHL
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Wave: seafoam to white -->
+  <div class="wave-divider seafoam-to-white">
+    <svg viewBox="0 0 1200 60" preserveAspectRatio="none"><path d="M0,30 C200,0 400,60 600,30 C800,0 1000,60 1200,30 L1200,60 L0,60 Z"/></svg>
+  </div>
+
+  <!-- ==================== THE HOUSE ==================== -->
+  <section class="house" id="house">
+    <div class="section-inner fade-in">
+      <h2 class="section-title">The House</h2>
+      <p class="section-subtitle">A sneak peek at Island House LVM's luxury villa collection</p>
+      <div class="gallery-grid">
+        <!-- Photo: Aerial TCI beach -->
+        <div class="gallery-item">
+          <img src="https://images.unsplash.com/photo-1580237072617-771c3ecc4a24?w=600&q=80"
+               alt="Aerial view of turquoise waters and white sand in Turks and Caicos" loading="lazy">
+          <div class="caption">Crystal clear waters</div>
+        </div>
+        <!-- Photo: Luxury pool villa -->
+        <div class="gallery-item">
+          <img src="https://images.unsplash.com/photo-1613490493576-7fde63acd811?w=600&q=80"
+               alt="Luxury villa with infinity pool overlooking the ocean" loading="lazy">
+          <div class="caption">Private pool &amp; ocean views</div>
+        </div>
+        <!-- Photo: Beach sunset -->
+        <div class="gallery-item">
+          <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=600&q=80"
+               alt="White sand beach with turquoise water" loading="lazy">
+          <div class="caption">Steps from your door</div>
+        </div>
+        <!-- Photo: Tropical outdoor living -->
+        <div class="gallery-item">
+          <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=600&q=80"
+               alt="Beautiful modern beach house exterior" loading="lazy">
+          <div class="caption">Luxury beachfront living</div>
+        </div>
+        <!-- Photo: Tropical water activities -->
+        <div class="gallery-item">
+          <img src="https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=600&q=80"
+               alt="Kayaks and paddleboards on a Caribbean beach" loading="lazy">
+          <div class="caption">Kayaks &amp; paddleboards included</div>
+        </div>
+        <!-- Photo: Palm trees & beach -->
+        <div class="gallery-item">
+          <img src="https://images.unsplash.com/photo-1559128010-7c1ad6e1b6a5?w=600&q=80"
+               alt="Palm trees on a tropical beach" loading="lazy">
+          <div class="caption">Paradise awaits</div>
+        </div>
+      </div>
+      <p class="house-note">
+        We'll choose from <a href="https://www.islandhouselvm.com/" target="_blank" rel="noopener">Island House LVM's</a>
+        collection of luxury beachfront villas depending on group size — private beach, heated pool,
+        sports courts, concierge service, private chef… the works.
+      </p>
+    </div>
+  </section>
+
+  <!-- Wave: white to sand -->
+  <div class="wave-divider white-to-sand">
+    <svg viewBox="0 0 1200 60" preserveAspectRatio="none"><path d="M0,30 C200,60 400,0 600,30 C800,60 1000,0 1200,30 L1200,60 L0,60 Z"/></svg>
+  </div>
+
+  <!-- ==================== WHAT'S INCLUDED ==================== -->
+  <section class="included" id="included">
+    <div class="section-inner fade-in">
+      <h2 class="section-title">What's Included</h2>
+      <p class="section-subtitle">We want this to be easy for everyone</p>
+      <div class="included-grid">
+        <div class="included-col covered">
+          <h3>🏠 Covered by Us</h3>
+          <ul>
+            <li>Luxury villa rental</li>
+            <li>Airport transfers</li>
+            <li>Private chef &amp; all meals</li>
+            <li>Concierge services</li>
+            <li>Beach toys &amp; water sports gear</li>
+            <li>Housekeeping</li>
+          </ul>
+        </div>
+        <div class="included-col bring">
+          <h3>🧳 You Bring</h3>
+          <ul>
+            <li>Your flights</li>
+            <li>Spending money for personal excursions</li>
+            <li>Sunscreen</li>
+            <li>Good vibes</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Wave: sand to ocean -->
+  <div class="wave-divider sand-to-ocean">
+    <svg viewBox="0 0 1200 60" preserveAspectRatio="none"><path d="M0,30 C200,0 400,60 600,30 C800,0 1000,60 1200,30 L1200,60 L0,60 Z"/></svg>
+  </div>
+
+  <!-- ==================== RSVP ==================== -->
+  <section class="rsvp" id="rsvp">
+    <div class="section-inner fade-in">
+      <h2 class="section-title">Are You In?</h2>
+      <p class="rsvp-text">
+        We need a headcount to pick the perfect house — let us know if you can make it!
+      </p>
+      <!-- REPLACE_WITH_GOOGLE_FORM_URL: Swap the href below with your Google Form link -->
+      <a href="https://forms.google.com" class="rsvp-btn" target="_blank" rel="noopener">
+        Count Me In! →
+      </a>
+      <p class="rsvp-closing">Can't wait to make memories with you ☀️</p>
+    </div>
+  </section>
+
+  <!-- ==================== FOOTER ==================== -->
+  <footer>
+    <p>Made with <span class="heart">♥</span> by Julie &amp; Fred</p>
+  </footer>
+
+  <!-- ==================== SCROLL ANIMATION JS ==================== -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+          }
+        });
+      }, { threshold: 0.15 });
+
+      document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+    });
+  </script>
+
+</body>
+</html>
