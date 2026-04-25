@@ -22,6 +22,8 @@
       --dark: #2D3436;
       --dark-light: #4a4f51;
       --seafoam: #e0f4f4;
+      --slate: #3d4f5f;
+      --slate-bg: #eef1f3;
     }
 
     html { scroll-behavior: smooth; }
@@ -49,7 +51,9 @@
     /* ===================== HERO ===================== */
     .hero {
       position: relative;
-      min-height: 100vh;
+      height: 70vh;
+      min-height: 400px;
+      max-height: 650px;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -60,13 +64,13 @@
     .hero-bg {
       position: absolute;
       inset: 0;
-      background: url('https://images.unsplash.com/photo-1548041347-390744c58da2?w=1920&q=80') center/cover no-repeat;
+      background: url('https://media-production.lp-cdn.com/cdn-cgi/image/format=auto,quality=85,fit=scale-down,width=1280/https://media-production.lp-cdn.com/media/dlp7g3bbiyeizluspu84') center/cover no-repeat;
       z-index: -2;
     }
     .hero-overlay {
       position: absolute;
       inset: 0;
-      background: linear-gradient(180deg, rgba(0,50,80,0.45) 0%, rgba(0,30,50,0.6) 100%);
+      background: linear-gradient(180deg, rgba(0,50,80,0.35) 0%, rgba(0,30,50,0.5) 100%);
       z-index: -1;
     }
     .hero-content { max-width: 700px; padding: 2rem; }
@@ -82,12 +86,12 @@
       font-size: clamp(1.1rem, 2.5vw, 1.5rem);
       font-weight: 400;
       opacity: 0.95;
-      margin-bottom: 2rem;
+      margin-bottom: 0;
       text-shadow: 0 1px 10px rgba(0,0,0,0.3);
     }
     .scroll-arrow {
       position: absolute;
-      bottom: 2rem;
+      bottom: 1.5rem;
       left: 50%;
       transform: translateX(-50%);
       animation: bounce 2s infinite;
@@ -115,6 +119,67 @@
       color: var(--dark-light);
       max-width: 600px;
       margin: 0 auto 3rem;
+    }
+
+    /* ===================== REMEMBER WINTER ===================== */
+    .winter { background: var(--slate-bg); }
+    .winter .section-title { color: var(--slate); }
+    .winter-photos {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.25rem;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    @media (max-width: 550px) {
+      .winter-photos { grid-template-columns: 1fr; }
+    }
+    .winter-photo {
+      border-radius: 12px;
+      overflow: hidden;
+      aspect-ratio: 16/10;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+    }
+    .winter-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: saturate(0.7) brightness(0.95);
+    }
+
+    /* ===================== ESCAPE SECTION ===================== */
+    .escape {
+      position: relative;
+      min-height: 500px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: var(--white);
+      overflow: hidden;
+    }
+    .escape-bg {
+      position: absolute;
+      inset: 0;
+      background: url('https://cdn.prod.website-files.com/623232f81d6b5a443ab94a8c/6308f3a8812ba880eb28ffc9_4-Bajacu---Dec-(64).jpg') center/cover no-repeat;
+      z-index: -2;
+    }
+    .escape-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(0,40,70,0.5) 0%, rgba(0,60,100,0.55) 100%);
+      z-index: -1;
+    }
+    .escape-content {
+      max-width: 700px;
+      padding: 3rem 2rem;
+    }
+    .escape-content h2 {
+      font-size: clamp(1.6rem, 4vw, 2.5rem);
+      font-weight: 700;
+      color: var(--white);
+      line-height: 1.35;
+      text-shadow: 0 2px 15px rgba(0,0,0,0.3);
     }
 
     /* ===================== THE PITCH ===================== */
@@ -331,6 +396,8 @@
     .wave-divider.seafoam-to-white svg { fill: var(--white); }
     .wave-divider.white-to-sand svg { fill: var(--sand-light); }
     .wave-divider.sand-to-ocean svg { fill: var(--ocean); }
+    .wave-divider.slate-to-escape { background: var(--slate-bg); }
+    .wave-divider.slate-to-escape svg { fill: var(--dark); }
 
     /* ===================== FOOTER ===================== */
     footer {
@@ -346,8 +413,11 @@
     /* ===================== RESPONSIVE ===================== */
     @media (max-width: 768px) {
       section { padding: 3.5rem 1.25rem; }
+      .hero { height: 60vh; min-height: 350px; }
       .deal-box { padding: 2rem 1.5rem; }
       .gallery-grid { grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); }
+      .escape { min-height: 400px; }
+      .escape-content { padding: 2.5rem 1.5rem; }
     }
   </style>
 </head>
@@ -355,15 +425,41 @@
 
   <!-- ==================== HERO ==================== -->
   <section class="hero" id="top">
-    <div class="hero-bg" role="img" aria-label="Turquoise water and white sand beach in Turks and Caicos"></div>
+    <div class="hero-bg" role="img" aria-label="Aerial view of Turks and Caicos islands with turquoise water"></div>
     <div class="hero-overlay"></div>
     <div class="hero-content">
       <h1>Turks &amp; Caicos 2027</h1>
       <p class="subtitle">A long weekend of sun, sand &amp; celebrating Fred</p>
     </div>
-    <a href="#pitch" class="scroll-arrow" aria-label="Scroll down">
+    <a href="#winter" class="scroll-arrow" aria-label="Scroll down">
       <svg viewBox="0 0 24 24"><path d="M12 16l-6-6h12z"/></svg>
     </a>
+  </section>
+
+  <!-- ==================== REMEMBER WINTER ==================== -->
+  <section class="winter" id="winter">
+    <div class="section-inner fade-in">
+      <h2 class="section-title">Remember last winter?</h2>
+      <div class="winter-photos">
+        <div class="winter-photo">
+          <img src="https://cdn.kpbs.org/dims4/default/fee72d1/2147483647/strip/true/crop/4768x2937+0+320/resize/880x542!/quality/90/?url=https%3A%2F%2Fnpr.brightspotcdn.com%2Fdims3%2Fdefault%2Fstrip%2Ffalse%2Fcrop%2F4768x3576%200%200%2Fresize%2F4768x3576%21%2F%3Furl%3Dhttp%3A%2F%2Fnpr-brightspot.s3.amazonaws.com%2F84%2F42%2F043aa5ac435f970cd359e832d44e%2Fap26054760646074.jpg"
+               alt="Snow piled up in front of a city skyline during a northeast winter storm" loading="lazy">
+        </div>
+        <div class="winter-photo">
+          <img src="https://whyy.org/wp-content/uploads/2026/02/2026-02-23-e-lee-moorestown-nj-blizzard-aftermath-double-shovel-1700x825.jpeg"
+               alt="People shoveling heavy snow after a northeast blizzard" loading="lazy">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== ESCAPE SECTION ==================== -->
+  <section class="escape" id="escape">
+    <div class="escape-bg" role="img" aria-label="Bajacu villa in Turks and Caicos with infinity pool and ocean views"></div>
+    <div class="escape-overlay"></div>
+    <div class="escape-content fade-in">
+      <h2>Escape winter next year and celebrate Fred's birthday with a trip to Turks&nbsp;&amp;&nbsp;Caicos — amazing weather, people&nbsp;&amp;&nbsp;views.</h2>
+    </div>
   </section>
 
   <!-- ==================== THE PITCH ==================== -->
@@ -434,37 +530,31 @@
       <h2 class="section-title">The House</h2>
       <p class="section-subtitle">A sneak peek at Island House LVM's luxury villa collection</p>
       <div class="gallery-grid">
-        <!-- Photo: Aerial TCI beach -->
         <div class="gallery-item">
           <img src="https://images.unsplash.com/photo-1580237072617-771c3ecc4a24?w=600&q=80"
                alt="Aerial view of turquoise waters and white sand in Turks and Caicos" loading="lazy">
           <div class="caption">Crystal clear waters</div>
         </div>
-        <!-- Photo: Luxury pool villa -->
         <div class="gallery-item">
           <img src="https://images.unsplash.com/photo-1613490493576-7fde63acd811?w=600&q=80"
                alt="Luxury villa with infinity pool overlooking the ocean" loading="lazy">
           <div class="caption">Private pool &amp; ocean views</div>
         </div>
-        <!-- Photo: Beach sunset -->
         <div class="gallery-item">
           <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=600&q=80"
                alt="White sand beach with turquoise water" loading="lazy">
           <div class="caption">Steps from your door</div>
         </div>
-        <!-- Photo: Tropical outdoor living -->
         <div class="gallery-item">
           <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=600&q=80"
                alt="Beautiful modern beach house exterior" loading="lazy">
           <div class="caption">Luxury beachfront living</div>
         </div>
-        <!-- Photo: Tropical water activities -->
         <div class="gallery-item">
           <img src="https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=600&q=80"
                alt="Kayaks and paddleboards on a Caribbean beach" loading="lazy">
           <div class="caption">Kayaks &amp; paddleboards included</div>
         </div>
-        <!-- Photo: Palm trees & beach -->
         <div class="gallery-item">
           <img src="https://images.unsplash.com/photo-1559128010-7c1ad6e1b6a5?w=600&q=80"
                alt="Palm trees on a tropical beach" loading="lazy">
